@@ -52,10 +52,10 @@ ENV RestoreUseSkipNonexistentTargets false
 
 
 #Install Mono
+RUN apt-get update
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 RUN apt install apt-transport-https
 RUN echo "deb https://download.mono-project.com/repo/debian stable-jessie main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
-RUN apt-get update
 RUN apt-get install mono-complete -y  && rm -rf /var/lib/apt/lists/*
 
 #add nuget for mono 
